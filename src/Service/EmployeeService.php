@@ -42,7 +42,6 @@ final class EmployeeService
     {
         $employee = $this->checkAndGet($employeeId);
         $data = json_decode((string) json_encode($input), false);
-
         $dataObject = (object) $data;
         return $this->employeeRepository->update($employee, $dataObject);
     }
@@ -51,5 +50,6 @@ final class EmployeeService
     {
         $this->checkAndGet($employeeId);
         $this->employeeRepository->delete($employeeId);
+        // return json_encode(['message' => 'Employee deleted', 'status' => 200]);
     }
 }

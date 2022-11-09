@@ -18,8 +18,6 @@ final class Update extends Base
         array $args
     ): Response {
         $input = (array) $request->getParsedBody();
-        var_dump($input);
-        exit;
         $employee = $this->getEmployeeService()->update($input, (int) $args['id']);
 
         return $response->withJson($employee);
